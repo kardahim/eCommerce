@@ -1,0 +1,18 @@
+<div class="product-card">
+  <img [src]="image_path" alt="{{ name }}" class="product-card__image" />
+
+  <div class="product-card__details">
+    <h2 class="product-card__name">{{ name }}</h2>
+    <p class="product-card__price">${{ price.toFixed(2) }}</p>
+    <p class="product-card__description">{{ short_description }}</p>
+
+    <div class="product-card__actions">
+      <button (click)="addToCart()" class="product-card__actions__button">
+        Add to Cart
+      </button>
+      <button (click)="viewDetails()" class="product-card__actions__button">
+        View Details
+      </button>
+    </div>
+  </div>
+</div>

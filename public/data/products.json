@@ -1,0 +1,90 @@
+[
+  {
+    "id": 1,
+    "name": "Black T-shirt",
+    "price": 32.45,
+    "image_path": "images/shirt.jpg",
+    "short_description": "lorem ipsum dolor sit amet",
+    "long_description": "lorem ipsum dolor sit amet, consectetuer adipiscing elit. Metus euismod malesuada, fusce cras luctus facilisi ornare mollis. Nec ut at mattis est, varius consequat. Avitae lobortis hac rhoncus morbi euismod dictum ac vitae. Mus commodo quisque eros platea euismod. Tristique ultricies facilisis primis facilisi penatibus himenaeos. Primis dolor suspendisse consectetur; nunc neque nostra. Molestie lacus fames netus dui nascetur, justo finibus. Mus molestie vel facilisis euismod ornare."
+  },
+  {
+    "id": 2,
+    "name": "Black T-shirt",
+    "price": 26.78,
+    "image_path": "images/shirt.jpg",
+    "short_description": "lorem ipsum dolor sit amet",
+    "long_description": "lorem ipsum dolor sit amet, consectetuer adipiscing elit. Metus euismod malesuada, fusce cras luctus facilisi ornare mollis. Nec ut at mattis est, varius consequat. Avitae lobortis hac rhoncus morbi euismod dictum ac vitae. Mus commodo quisque eros platea euismod. Tristique ultricies facilisis primis facilisi penatibus himenaeos. Primis dolor suspendisse consectetur; nunc neque nostra. Molestie lacus fames netus dui nascetur, justo finibus. Mus molestie vel facilisis euismod ornare."
+  },
+  {
+    "id": 3,
+    "name": "Black T-shirt",
+    "price": 18.55,
+    "image_path": "images/shirt.jpg",
+    "short_description": "lorem ipsum dolor sit amet",
+    "long_description": "lorem ipsum dolor sit amet, consectetuer adipiscing elit. Metus euismod malesuada, fusce cras luctus facilisi ornare mollis. Nec ut at mattis est, varius consequat. Avitae lobortis hac rhoncus morbi euismod dictum ac vitae. Mus commodo quisque eros platea euismod. Tristique ultricies facilisis primis facilisi penatibus himenaeos. Primis dolor suspendisse consectetur; nunc neque nostra. Molestie lacus fames netus dui nascetur, justo finibus. Mus molestie vel facilisis euismod ornare."
+  },
+  {
+    "id": 4,
+    "name": "Black T-shirt",
+    "price": 24.99,
+    "image_path": "images/shirt.jpg",
+    "short_description": "lorem ipsum dolor sit amet",
+    "long_description": "lorem ipsum dolor sit amet, consectetuer adipiscing elit. Metus euismod malesuada, fusce cras luctus facilisi ornare mollis. Nec ut at mattis est, varius consequat. Avitae lobortis hac rhoncus morbi euismod dictum ac vitae. Mus commodo quisque eros platea euismod. Tristique ultricies facilisis primis facilisi penatibus himenaeos. Primis dolor suspendisse consectetur; nunc neque nostra. Molestie lacus fames netus dui nascetur, justo finibus. Mus molestie vel facilisis euismod ornare."
+  },
+  {
+    "id": 5,
+    "name": "Black T-shirt",
+    "price": 29.85,
+    "image_path": "images/shirt.jpg",
+    "short_description": "lorem ipsum dolor sit amet",
+    "long_description": "lorem ipsum dolor sit amet, consectetuer adipiscing elit. Metus euismod malesuada, fusce cras luctus facilisi ornare mollis. Nec ut at mattis est, varius consequat. Avitae lobortis hac rhoncus morbi euismod dictum ac vitae. Mus commodo quisque eros platea euismod. Tristique ultricies facilisis primis facilisi penatibus himenaeos. Primis dolor suspendisse consectetur; nunc neque nostra. Molestie lacus fames netus dui nascetur, justo finibus. Mus molestie vel facilisis euismod ornare."
+  },
+  {
+    "id": 6,
+    "name": "Black T-shirt",
+    "price": 35.77,
+    "image_path": "images/shirt.jpg",
+    "short_description": "lorem ipsum dolor sit amet",
+    "long_description": "lorem ipsum dolor sit amet, consectetuer adipiscing elit. Metus euismod malesuada, fusce cras luctus facilisi ornare mollis. Nec ut at mattis est, varius consequat. Avitae lobortis hac rhoncus morbi euismod dictum ac vitae. Mus commodo quisque eros platea euismod. Tristique ultricies facilisis primis facilisi penatibus himenaeos. Primis dolor suspendisse consectetur; nunc neque nostra. Molestie lacus fames netus dui nascetur, justo finibus. Mus molestie vel facilisis euismod ornare."
+  },
+  {
+    "id": 7,
+    "name": "Black T-shirt",
+    "price": 17.92,
+    "image_path": "images/shirt.jpg",
+    "short_description": "lorem ipsum dolor sit amet",
+    "long_description": "lorem ipsum dolor sit amet, consectetuer adipiscing elit. Metus euismod malesuada, fusce cras luctus facilisi ornare mollis. Nec ut at mattis est, varius consequat. Avitae lobortis hac rhoncus morbi euismod dictum ac vitae. Mus commodo quisque eros platea euismod. Tristique ultricies facilisis primis facilisi penatibus himenaeos. Primis dolor suspendisse consectetur; nunc neque nostra. Molestie lacus fames netus dui nascetur, justo finibus. Mus molestie vel facilisis euismod ornare."
+  },
+  {
+    "id": 8,
+    "name": "Black T-shirt",
+    "price": 30.48,
+    "image_path": "images/shirt.jpg",
+    "short_description": "lorem ipsum dolor sit amet",
+    "long_description": "lorem ipsum dolor sit amet, consectetuer adipiscing elit. Metus euismod malesuada, fusce cras luctus facilisi ornare mollis. Nec ut at mattis est, varius consequat. Avitae lobortis hac rhoncus morbi euismod dictum ac vitae. Mus commodo quisque eros platea euismod. Tristique ultricies facilisis primis facilisi penatibus himenaeos. Primis dolor suspendisse consectetur; nunc neque nostra. Molestie lacus fames netus dui nascetur, justo finibus. Mus molestie vel facilisis euismod ornare."
+  },
+  {
+    "id": 9,
+    "name": "Jeans",
+    "price": 21.63,
+    "image_path": "images/jeans.png",
+    "short_description": "lorem ipsum dolor sit amet",
+    "long_description": "lorem ipsum dolor sit amet, consectetuer adipiscing elit. Metus euismod malesuada, fusce cras luctus facilisi ornare mollis. Nec ut at mattis est, varius consequat. Avitae lobortis hac rhoncus morbi euismod dictum ac vitae. Mus commodo quisque eros platea euismod. Tristique ultricies facilisis primis facilisi penatibus himenaeos. Primis dolor suspendisse consectetur; nunc neque nostra. Molestie lacus fames netus dui nascetur, justo finibus. Mus molestie vel facilisis euismod ornare."
+  },
+  {
+    "id": 10,
+    "name": "Jeans",
+    "price": 28.99,
+    "image_path": "images/jeans.png",
+    "short_description": "lorem ipsum dolor sit amet",
+    "long_description": "lorem ipsum dolor sit amet, consectetuer adipiscing elit. Metus euismod malesuada, fusce cras luctus facilisi ornare mollis. Nec ut at mattis est, varius consequat. Avitae lobortis hac rhoncus morbi euismod dictum ac vitae. Mus commodo quisque eros platea euismod. Tristique ultricies facilisis primis facilisi penatibus himenaeos. Primis dolor suspendisse consectetur; nunc neque nostra. Molestie lacus fames netus dui nascetur, justo finibus. Mus molestie vel facilisis euismod ornare."
+  },
+  {
+    "id": 11,
+    "name": "Jeans",
+    "price": 37.46,
+    "image_path": "images/jeans.png",
+    "short_description": "lorem ipsum dolor sit amet",
+    "long_description": "lorem ipsum dolor sit amet, consectetuer adipiscing elit. Metus euismod malesuada, fusce cras luctus facilisi ornare mollis. Nec ut at mattis est, varius consequat. Avitae lobortis hac rhoncus morbi euismod dictum ac vitae. Mus commodo quisque eros platea euismod. Tristique ultricies facilisis primis facilisi penatibus himenaeos. Primis dolor suspendisse consectetur; nunc neque nostra. Molestie lacus fames netus dui nascetur, justo finibus. Mus molestie vel facilisis euismod ornare."
+  }
+]
