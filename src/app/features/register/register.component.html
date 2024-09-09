@@ -1,1 +1,122 @@
-<p>register works!</p>
+<div class="register">
+  <h1 class="register__header">Register</h1>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <!-- Firstname -->
+    <div class="register__group">
+      <label for="firstname" class="register__group__label">Firstname</label>
+      <input
+        type="text"
+        id="firstname"
+        class="register__group__input"
+        formControlName="firstname"
+      />
+      <p
+        *ngIf="firstname?.errors?.['required'] && firstname?.touched"
+        class="register__group__error-message"
+      >
+        Firstname is required
+      </p>
+    </div>
+
+    <!-- Lastname -->
+    <div class="register__group">
+      <label for="lastname" class="register__group__label">Lastname</label>
+      <input
+        type="text"
+        id="lastname"
+        class="register__group__input"
+        formControlName="lastname"
+      />
+      <p
+        *ngIf="lastname?.errors?.['required'] && lastname?.touched"
+        class="register__group__error-message"
+      >
+        Lastname is required
+      </p>
+    </div>
+
+    <!-- Email -->
+    <div class="register__group">
+      <label for="email" class="register__group__label">Email</label>
+      <input
+        type="email"
+        id="email"
+        class="register__group__input"
+        formControlName="email"
+      />
+      <p
+        *ngIf="email?.errors?.['required'] && email?.touched"
+        class="register__group__error-message"
+      >
+        Email is required
+      </p>
+      <p
+        *ngIf="email?.errors?.['email'] && email?.touched"
+        class="register__group__error-message"
+      >
+        Invalid email format
+      </p>
+      <p *ngIf="emailIsTaken" class="register__group__error-message">
+        Email is already taken
+      </p>
+    </div>
+
+    <!-- Password -->
+    <div class="register__group">
+      <label for="password" class="register__group__label">Password</label>
+      <input
+        type="password"
+        id="password"
+        class="register__group__input"
+        formControlName="password"
+      />
+      <p
+        *ngIf="password?.errors?.['required'] && password?.touched"
+        class="register__group__error-message"
+      >
+        Password is required
+      </p>
+      <p
+        *ngIf="password?.errors?.['minLength'] && password?.touched"
+        class="register__group__error-message"
+      >
+        Password must be at least 8 characters long
+      </p>
+      <p
+        *ngIf="password?.errors?.['pattern'] && password?.touched"
+        class="register__group__error-message"
+      >
+        Password must contain at least one uppercase letter, one lowercase
+        letter, one number, and one special character
+      </p>
+    </div>
+
+    <!-- Repeat Password -->
+    <div class="register__group">
+      <label for="repeat-password" class="register__group__label"
+        >Repeat Password</label
+      >
+      <input
+        type="password"
+        id="repeat-password"
+        class="register__group__input"
+        formControlName="repeatPassword"
+      />
+      <p
+        *ngIf="repeatPassword?.errors?.['required'] && repeatPassword?.touched"
+        class="register__group__error-message"
+      >
+        Repeat Password is required
+      </p>
+      <p
+        *ngIf="registerForm.errors?.['mismatch'] && repeatPassword?.touched"
+        class="register__group__error-message"
+      >
+        Passwords do not match
+      </p>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit">Sign In</button>
+  </form>
+</div>
