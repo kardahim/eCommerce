@@ -7,6 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { AuthService } from '../../shared/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -19,7 +20,11 @@ export class RegisterComponent {
   registerForm: FormGroup;
   emailIsTaken: boolean = false;
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+  ) {
     this.registerForm = this.fb.group(
       {
         firstname: ['', Validators.required],
@@ -54,7 +59,7 @@ export class RegisterComponent {
 
       if (this.authService.register(formData)) {
         this.emailIsTaken = false;
-        // navigate to home
+        this.router.navigate(['/login']);
       } else {
         if (!this.authService.verifyUser(formData)) this.emailIsTaken = true;
       }

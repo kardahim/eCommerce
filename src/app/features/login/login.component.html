@@ -1,1 +1,64 @@
-<p>login works!</p>
+<div class="login">
+  <h1 class="login__header">login</h1>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <!-- Email -->
+    <div class="login__group">
+      <label for="email" class="login__group__label">Email</label>
+      <input
+        type="email"
+        id="email"
+        class="login__group__input"
+        formControlName="email"
+      />
+      <p
+        *ngIf="email?.errors?.['required'] && email?.touched"
+        class="login__group__error-message"
+      >
+        Email is required
+      </p>
+      <p
+        *ngIf="email?.errors?.['email'] && email?.touched"
+        class="login__group__error-message"
+      >
+        Invalid email format
+      </p>
+    </div>
+
+    <!-- Password -->
+    <div class="login__group">
+      <label for="password" class="login__group__label">Password</label>
+      <input
+        type="password"
+        id="password"
+        class="login__group__input"
+        formControlName="password"
+      />
+      <p
+        *ngIf="password?.errors?.['required'] && password?.touched"
+        class="login__group__error-message"
+      >
+        Password is required
+      </p>
+      <p
+        *ngIf="password?.errors?.['minLength'] && password?.touched"
+        class="login__group__error-message"
+      >
+        Password must be at least 8 characters long
+      </p>
+      <p
+        *ngIf="password?.errors?.['pattern'] && password?.touched"
+        class="login__group__error-message"
+      >
+        Password must contain at least one uppercase letter, one lowercase
+        letter, one number, and one special character
+      </p>
+      <!-- Error Message -->
+      <p *ngIf="errorMessage" class="login__group__error-message">
+        {{ errorMessage }}
+      </p>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit">Sign In</button>
+  </form>
+</div>
