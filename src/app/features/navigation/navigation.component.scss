@@ -7,10 +7,11 @@
     color: white;
 }
   
-  .navbar__logo {
+  .navbar__logo a{
     font-size: 24px;
     color: white;
     cursor: pointer;
+    text-decoration: none;
   
     span {
       font-size: 24px;
@@ -58,6 +59,7 @@
     .navbar__user {
       position: relative;
       margin-left: 20px;
+      cursor: pointer;
   
       .navbar__user__icon {
         text-decoration: none;
