@@ -20,9 +20,13 @@
       <div class="navbar__user__icon">
         <img src="images/user.svg" alt="User" />
       </div>
-      <div class="navbar__user__content">
+      <div class="navbar__user__content" *ngIf="!isLogged">
         <a routerLink="/login">Sign in</a>
         <a routerLink="/register">Sign up</a>
+      </div>
+      <div class="navbar__user__content" *ngIf="isLogged">
+        <span (click)="logout()">Logout</span>
+        <a routerLink="/history">Order history</a>
       </div>
     </div>
   </div>

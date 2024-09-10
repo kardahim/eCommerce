@@ -2,7 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { CartService } from '../../shared/services/cart.service';
-import { Subscribable, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
+import { AuthService } from '../../shared/services/auth.service';
 
 @Component({
   selector: 'app-navigation',
@@ -13,10 +14,15 @@ import { Subscribable, Subscription } from 'rxjs';
 })
 export class NavigationComponent implements OnInit, OnDestroy {
   cart_items_number!: number;
-  private cartSubscription!: Subscription;
-  private cartIsOpenSubscription!: Subscription;
+  isLogged: boolean = false;
 
-  constructor(private cartService: CartService) {}
+  private cartSubscription!: Subscription;
+  private isLoggedStatusSubscription!: Subscription;
+
+  constructor(
+    private cartService: CartService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit() {
     // first load
@@ -26,15 +32,30 @@ export class NavigationComponent implements OnInit, OnDestroy {
     this.cartSubscription = this.cartService.cartChanged.subscribe((cart) => {
       this.cart_items_number = cart.length;
     });
+
+    // Initialize login status from AuthService and subscribe to future changes
+    this.isLogged = this.authService.isLoggedIn(); // Get current status
+    this.isLoggedStatusSubscription =
+      this.authService.isLoggedStatus$.subscribe((status) => {
+        this.isLogged = status;
+      });
   }
 
   ngOnDestroy() {
     if (this.cartSubscription) {
       this.cartSubscription.unsubscribe();
     }
+
+    if (this.isLoggedStatusSubscription) {
+      this.isLoggedStatusSubscription.unsubscribe();
+    }
   }
 
   toogleCart() {
     this.cartService.toogleCart();
+  }
+
+  logout() {
+    this.authService.logout();
   }
 }

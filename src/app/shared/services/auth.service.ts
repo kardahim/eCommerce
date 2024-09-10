@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IUser } from '../interfaces/IUser';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -8,7 +9,17 @@ export class AuthService {
   private readonly USERS_KEY = 'users';
   private readonly LOGGED_IN_USER_KEY = 'loggedInUser';
 
-  constructor() {}
+  private isLoggedSubject = new Subject<boolean>();
+  public isLoggedStatus$ = this.isLoggedSubject.asObservable();
+
+  constructor() {
+    this.isLoggedSubject.next(this.isLoggedIn());
+  }
+
+  // Base64 isnt safe. This is a simple mockup
+  private encodePassword(password: string): string {
+    return btoa(password);
+  }
 
   register(user: IUser): boolean {
     let users: IUser[] = JSON.parse(
@@ -19,6 +30,10 @@ export class AuthService {
       console.error('User already exists');
       return false;
     }
+
+    // Encode the user's password before saving
+    user.password = this.encodePassword(user.password);
+    user.repeatPassword = this.encodePassword(user.repeatPassword!);
 
     users.push(user);
     localStorage.setItem(this.USERS_KEY, JSON.stringify(users));
@@ -39,11 +54,15 @@ export class AuthService {
       localStorage.getItem(this.USERS_KEY) || '[]'
     );
 
+    // Encode the input password to match the stored encoded password
+    const encodedPassword = this.encodePassword(password);
+
     const user = users.find(
-      (u) => u.email === email && u.password === password
+      (u) => u.email === email && u.password === encodedPassword
     );
     if (user) {
       localStorage.setItem(this.LOGGED_IN_USER_KEY, JSON.stringify(user));
+      this.isLoggedSubject.next(true);
       return true;
     }
 
@@ -53,6 +72,7 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem(this.LOGGED_IN_USER_KEY);
+    this.isLoggedSubject.next(false);
   }
 
   isLoggedIn(): boolean {
