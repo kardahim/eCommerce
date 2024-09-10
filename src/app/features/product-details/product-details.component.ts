@@ -40,7 +40,7 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   increaseAmount() {
-    this.productsAmount++;
+    if (this.productsAmount < 20) this.productsAmount++;
   }
   decreaseAmount() {
     if (this.productsAmount > 1) this.productsAmount--;

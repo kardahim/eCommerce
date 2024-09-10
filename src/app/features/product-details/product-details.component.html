@@ -15,9 +15,13 @@
     <label for="amount">Amount</label>
     <div class="product-details__content__actions">
       <div class="product-details__content__actions__amount">
-        <button (click)="decreaseAmount()">-</button>
+        <button (click)="decreaseAmount()" [disabled]="productsAmount == 1">
+          -
+        </button>
         <input id="amount" disabled [value]="productsAmount" />
-        <button (click)="increaseAmount()">+</button>
+        <button (click)="increaseAmount()" [disabled]="productsAmount == 20">
+          +
+        </button>
       </div>
       <button
         class="product-details__content__actions__cart"
