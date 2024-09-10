@@ -10,6 +10,7 @@ import { AuthService } from '../../shared/services/auth.service';
 import { Router } from '@angular/router';
 import { IUser } from '../../shared/interfaces/IUser';
 import { CartService } from '../../shared/services/cart.service';
+import { OrderHistoryService } from '../../shared/services/order-history.service';
 
 @Component({
   selector: 'app-checkout',
@@ -27,7 +28,8 @@ export class CheckoutComponent implements OnInit {
     private fb: FormBuilder,
     private authService: AuthService,
     private router: Router,
-    private cartService: CartService
+    private cartService: CartService,
+    private orderHistoryService: OrderHistoryService
   ) {}
 
   ngOnInit() {
@@ -70,6 +72,10 @@ export class CheckoutComponent implements OnInit {
       const formData = this.checkoutForm.value;
       alert(
         'Here should be redirect to payment service like mTransfer. But this is mockup, confirm to continue'
+      );
+      this.orderHistoryService.addOrder(
+        this.cartService.loadCart(),
+        new Date()
       );
       this.cartService.clearCart();
       this.router.navigate(['']);

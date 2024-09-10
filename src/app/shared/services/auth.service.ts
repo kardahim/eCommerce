@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { IUser } from '../interfaces/IUser';
 import { Subject } from 'rxjs';
+import { IOrderHistory } from '../interfaces/IOrderHistory';
 
 @Injectable({
   providedIn: 'root',
@@ -82,5 +83,30 @@ export class AuthService {
   getLoggedInUser(): IUser | null {
     const user = localStorage.getItem(this.LOGGED_IN_USER_KEY);
     return user ? JSON.parse(user) : null;
+  }
+
+  updateUser(updatedUser: IUser) {
+    const currentUser = this.getLoggedInUser();
+
+    if (currentUser) {
+      // Update the user object
+      const updatedUserData = { ...currentUser, ...updatedUser };
+
+      // Update in localStorage for logged-in user
+      localStorage.setItem(
+        this.LOGGED_IN_USER_KEY,
+        JSON.stringify(updatedUserData)
+      );
+
+      // Update in the list of users
+      let users: IUser[] = JSON.parse(
+        localStorage.getItem(this.USERS_KEY) || '[]'
+      );
+      const index = users.findIndex((u) => u.email === updatedUserData.email);
+      if (index !== -1) {
+        users[index] = updatedUserData;
+        localStorage.setItem(this.USERS_KEY, JSON.stringify(users));
+      }
+    }
   }
 }
