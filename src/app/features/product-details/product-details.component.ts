@@ -4,11 +4,12 @@ import { IProduct } from '../../shared/interfaces/IProduct';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { CurrencyPipe } from '@angular/common';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-product-details',
   standalone: true,
-  imports: [CurrencyPipe],
+  imports: [CurrencyPipe, NgIf],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.scss',
 })
