@@ -1,27 +1,29 @@
 <nav class="navbar">
-    <div class="navbar__logo">
-      <a routerLink="/">MyStore</a>
-    </div>
+  <div class="navbar__logo">
+    <a routerLink="/">MyStore</a>
+  </div>
 
-    <div class="navbar__search">
-      <input type="text" placeholder="Search for products...">
-    </div>
+  <div class="navbar__search">
+    <input type="text" placeholder="Search for products..." />
+  </div>
 
-    <div class="navbar__icons">
-      <a routerLink="/cart" class="navbar__cart">
-        <img src="images/cart.svg" alt="Cart">
-        <span class="navbar__cart__badge" *ngIf="cart_items_number > 0">{{cart_items_number}}</span>
-      </a>
-      
-      <!-- dropdown user menu -->
-      <div class="navbar__user">
-        <div class="navbar__user__icon">
-          <img src="images/user.svg" alt="User">
-        </div>
-        <div class="navbar__user__content">
-          <a routerLink="/login">Sign in</a>
-          <a routerLink="/register">Sign up</a>
-        </div>
+  <div class="navbar__icons">
+    <span class="navbar__cart" (click)="toogleCart()">
+      <img src="images/cart.svg" alt="Cart" />
+      <span class="navbar__cart__badge" *ngIf="cart_items_number > 0">
+        {{ cart_items_number > 9 ? "+" : cart_items_number }}
+      </span>
+    </span>
+
+    <!-- dropdown user menu -->
+    <div class="navbar__user">
+      <div class="navbar__user__icon">
+        <img src="images/user.svg" alt="User" />
+      </div>
+      <div class="navbar__user__content">
+        <a routerLink="/login">Sign in</a>
+        <a routerLink="/register">Sign up</a>
       </div>
     </div>
-  </nav>
+  </div>
+</nav>

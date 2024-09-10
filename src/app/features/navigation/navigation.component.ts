@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgIf } from '@angular/common';
+import { CartService } from '../../shared/services/cart.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-navigation',
@@ -9,7 +11,29 @@ import { NgIf } from '@angular/common';
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.scss',
 })
-export class NavigationComponent {
-  // get from local storage
-  cart_items_number: number = 3;
+export class NavigationComponent implements OnInit, OnDestroy {
+  cart_items_number!: number;
+  private cartSubscription!: Subscription;
+
+  constructor(private cartService: CartService) {}
+
+  ngOnInit() {
+    // first load
+    this.cart_items_number = this.cartService.loadCart().length;
+
+    // update badge
+    this.cartSubscription = this.cartService.cartChanged.subscribe((cart) => {
+      this.cart_items_number = cart.length;
+    });
+  }
+
+  ngOnDestroy() {
+    if (this.cartSubscription) {
+      this.cartSubscription.unsubscribe();
+    }
+  }
+
+  toogleCart() {
+    this.cartService.toogleCart();
+  }
 }
