@@ -1,0 +1,39 @@
+<div class="cart-overlay" *ngIf="isCartOpen">
+  <div class="cart-container">
+    <button class="cart-close" (click)="closeDrawer()">&#x2715;</button>
+    <div class="cart-header">
+      <h1>Your Cart</h1>
+    </div>
+    <div class="cart-items">
+      <div *ngFor="let item of cart" class="cart-item">
+        <img
+          [src]="item.product.image_path"
+          [alt]="item.product.name"
+          class="cart-item__image"
+        />
+        <div class="cart-item__details">
+          <h3>{{ item.product.name }}</h3>
+          <p>{{ item.product.price | currency : "USD" }}</p>
+          <div class="cart-item__quantity">
+            <div>
+              <button (click)="decreaseQuantity(item.product.id)">-</button>
+              <span>{{ item.amount }}</span>
+              <button (click)="increaseQuantity(item.product.id)">+</button>
+            </div>
+            <button class="remove-item">
+              <img
+                src="images/trash.svg"
+                alt="delete icon"
+                (click)="removeFromCart(item.product.id)"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cart-summary">
+      <p>Total Amount: {{ getTotalPrice() | currency : "USD" }}</p>
+      <button class="checkout-button" (click)="checkout()">Checkout</button>
+    </div>
+  </div>
+</div>

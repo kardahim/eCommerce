@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { CartService } from '../../shared/services/cart.service';
-import { Subscription } from 'rxjs';
+import { Subscribable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-navigation',
@@ -14,6 +14,7 @@ import { Subscription } from 'rxjs';
 export class NavigationComponent implements OnInit, OnDestroy {
   cart_items_number!: number;
   private cartSubscription!: Subscription;
+  private cartIsOpenSubscription!: Subscription;
 
   constructor(private cartService: CartService) {}
 
