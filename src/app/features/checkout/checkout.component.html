@@ -1,0 +1,207 @@
+<div class="checkout">
+  <h1 class="checkout__header">Checkout</h1>
+  <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+    <div class="checkout__group__wrapper">
+      <!-- Firstname -->
+      <div class="checkout__group">
+        <label for="firstname" class="checkout__group__label"
+          >Firstname *</label
+        >
+        <input
+          type="text"
+          id="firstname"
+          class="checkout__group__input"
+          formControlName="firstname"
+        />
+        <p
+          *ngIf="firstname?.errors?.['required'] && firstname?.touched"
+          class="checkout__group__error-message"
+        >
+          Firstname is required
+        </p>
+      </div>
+
+      <!-- Lastname -->
+      <div class="checkout__group">
+        <label for="lastname" class="checkout__group__label">Lastname *</label>
+        <input
+          type="text"
+          id="lastname"
+          class="checkout__group__input"
+          formControlName="lastname"
+        />
+        <p
+          *ngIf="lastname?.errors?.['required'] && lastname?.touched"
+          class="checkout__group__error-message"
+        >
+          Lastname is required
+        </p>
+      </div>
+    </div>
+
+    <div class="checkout__group__wrapper">
+      <!-- Phone -->
+      <div class="checkout__group">
+        <label for="phone" class="checkout__group__label">Phone number *</label>
+        <input
+          type="text"
+          id="phone"
+          class="checkout__group__input"
+          formControlName="phone"
+        />
+        <p
+          *ngIf="phone?.errors?.['required'] && phone?.touched"
+          class="checkout__group__error-message"
+        >
+          Phone is required
+        </p>
+        <p
+          *ngIf="phone?.errors?.['pattern'] && phone?.touched"
+          class="checkout__group__error-message"
+        >
+          Phone format is invalid
+        </p>
+      </div>
+
+      <!-- Email -->
+      <div class="checkout__group">
+        <label for="email" class="checkout__group__label">Email</label>
+        <input
+          type="text"
+          id="email"
+          class="checkout__group__input"
+          formControlName="email"
+        />
+        <p
+          *ngIf="email?.errors?.['email'] && email?.touched"
+          class="checkout__group__error-message"
+        >
+          Email is invalid
+        </p>
+      </div>
+    </div>
+
+    <!-- Street -->
+    <div class="checkout__group">
+      <label for="street" class="checkout__group__label">Street *</label>
+      <input
+        type="text"
+        id="street"
+        class="checkout__group__input"
+        formControlName="street"
+      />
+      <p
+        *ngIf="street?.errors?.['required'] && street?.touched"
+        class="checkout__group__error-message"
+      >
+        Street is required
+      </p>
+    </div>
+
+    <div class="checkout__group__wrapper">
+      <!-- House number -->
+      <div class="checkout__group">
+        <label for="houseNumber" class="checkout__group__label"
+          >House number *</label
+        >
+        <input
+          type="text"
+          id="houseNumber"
+          class="checkout__group__input"
+          formControlName="houseNumber"
+        />
+        <p
+          *ngIf="houseNumber?.errors?.['required'] && houseNumber?.touched"
+          class="checkout__group__error-message"
+        >
+          House number is required
+        </p>
+        <p
+          *ngIf="houseNumber?.errors?.['pattern'] && houseNumber?.touched"
+          class="checkout__group__error-message"
+        >
+          House number format is invalid
+        </p>
+      </div>
+
+      <!-- Postal code -->
+      <div class="checkout__group">
+        <label for="postalCode" class="checkout__group__label"
+          >Postal code *</label
+        >
+        <input
+          type="text"
+          id="postalCode"
+          class="checkout__group__input"
+          formControlName="postalCode"
+        />
+        <p
+          *ngIf="postalCode?.errors?.['required'] && postalCode?.touched"
+          class="checkout__group__error-message"
+        >
+          Postal code is required
+        </p>
+
+        <p
+          *ngIf="postalCode?.errors?.['pattern'] && postalCode?.touched"
+          class="checkout__group__error-message"
+        >
+          Postal code format is invalid
+        </p>
+      </div>
+
+      <!-- City -->
+      <div class="checkout__group">
+        <label for="city" class="checkout__group__label">City *</label>
+        <input
+          type="text"
+          id="city"
+          class="checkout__group__input"
+          formControlName="city"
+        />
+        <p
+          *ngIf="city?.errors?.['required'] && city?.touched"
+          class="checkout__group__error-message"
+        >
+          City is required
+        </p>
+      </div>
+    </div>
+
+    <!-- Payment methods -->
+    <div class="checkout__group checkout__group--radio">
+      <label class="checkout__group__label">Payment method *</label>
+      <div>
+        <label>
+          <input type="radio" formControlName="paymentMethod" value="visa" />
+          Visa
+        </label>
+      </div>
+      <div>
+        <label>
+          <input
+            type="radio"
+            formControlName="paymentMethod"
+            value="mtransfer"
+          />
+          mTransfer
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="radio" formControlName="paymentMethod" value="blik" />
+          Blik
+        </label>
+      </div>
+      <p
+        *ngIf="paymentMethod?.errors?.['required'] && paymentMethod?.touched"
+        class="checkout__group__error-message"
+      >
+        Payment method is required
+      </p>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit">Pay</button>
+  </form>
+</div>

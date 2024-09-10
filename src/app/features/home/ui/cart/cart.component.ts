@@ -4,6 +4,7 @@ import { CartService } from '../../../../shared/services/cart.service';
 import { Subscription } from 'rxjs';
 import { ICartItem } from '../../../../shared/interfaces/ICartItem';
 import { IProduct } from '../../../../shared/interfaces/IProduct';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -17,7 +18,7 @@ export class CartComponent implements OnInit, OnDestroy {
   cart!: ICartItem[];
   private isCartOpenStatusSubscription!: Subscription;
 
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService, private router: Router) {}
 
   closeDrawer() {
     this.cartService.toogleCart();
@@ -41,7 +42,9 @@ export class CartComponent implements OnInit, OnDestroy {
     return this.cartService.getTotalPrice();
   }
 
-  checkout() {}
+  checkout() {
+    this.router.navigate(['/checkout']);
+  }
 
   ngOnInit() {
     this.isCartOpenStatusSubscription =

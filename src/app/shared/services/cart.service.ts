@@ -78,4 +78,10 @@ export class CartService {
       localStorage.setItem(this.CART_KEY, JSON.stringify(cart));
     }
   }
+
+  clearCart(): void {
+    localStorage.removeItem(this.CART_KEY);
+    const cart = this.loadCart();
+    this.cartChanged.emit(cart);
+  }
 }
