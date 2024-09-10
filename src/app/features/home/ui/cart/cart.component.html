@@ -16,9 +16,19 @@
           <p>{{ item.product.price | currency : "USD" }}</p>
           <div class="cart-item__quantity">
             <div>
-              <button (click)="decreaseQuantity(item.product.id)">-</button>
+              <button
+                (click)="decreaseQuantity(item.product.id)"
+                [disabled]="item.amount == 1"
+              >
+                -
+              </button>
               <span>{{ item.amount }}</span>
-              <button (click)="increaseQuantity(item.product.id)">+</button>
+              <button
+                (click)="increaseQuantity(item.product.id)"
+                [disabled]="item.amount == 20"
+              >
+                +
+              </button>
             </div>
             <button class="remove-item">
               <img
@@ -33,7 +43,13 @@
     </div>
     <div class="cart-summary">
       <p>Total Amount: {{ getTotalPrice() | currency : "USD" }}</p>
-      <button class="checkout-button" (click)="checkout()">Checkout</button>
+      <button
+        class="checkout-button"
+        (click)="checkout()"
+        [disabled]="getTotalPrice() == 0"
+      >
+        Checkout
+      </button>
     </div>
   </div>
 </div>

@@ -52,6 +52,10 @@
         border-bottom: 1px solid #eee;
         padding-bottom: 10px;
 
+        &:nth-last-child(1) {
+          border: none;
+        }
+
         &__image {
           width: 80px;
           height: 80px;
@@ -131,5 +135,9 @@
 
   &:active {
     transform: scale(0.9);
+  }
+
+  &:disabled {
+    background-color: #333;
   }
 }
