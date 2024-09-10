@@ -1,0 +1,30 @@
+<div class="product-details">
+  <img
+    [src]="product.image_path"
+    [alt]="product.name"
+    class="product-details__image"
+  />
+  <div class="product-details__content">
+    <h1 class="product-details__content__name">{{ product.name }}</h1>
+    <p class="product-details__content__price">
+      {{ product.price | currency : "USD" }}
+    </p>
+    <p class="product-details__content__description">
+      {{ product.long_description }}
+    </p>
+    <label for="amount">Amount</label>
+    <div class="product-details__content__actions">
+      <div class="product-details__content__actions__amount">
+        <button (click)="decreaseAmount()">-</button>
+        <input id="amount" disabled [value]="productsAmount" />
+        <button (click)="increaseAmount()">+</button>
+      </div>
+      <button
+        class="product-details__content__actions__cart"
+        (click)="addToCart()"
+      >
+        Add to Cart
+      </button>
+    </div>
+  </div>
+</div>

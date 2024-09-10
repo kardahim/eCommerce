@@ -3,7 +3,7 @@
 
   <div class="product-card__details">
     <h2 class="product-card__name">{{ name }}</h2>
-    <p class="product-card__price">${{ price.toFixed(2) }}</p>
+    <p class="product-card__price">{{ price.toFixed(2) | currency : "USD" }}</p>
     <p class="product-card__description">{{ short_description }}</p>
 
     <div class="product-card__actions">

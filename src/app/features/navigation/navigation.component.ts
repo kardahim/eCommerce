@@ -7,10 +7,9 @@ import { NgIf } from '@angular/common';
   standalone: true,
   imports: [RouterModule, NgIf],
   templateUrl: './navigation.component.html',
-  styleUrl: './navigation.component.scss'
+  styleUrl: './navigation.component.scss',
 })
 export class NavigationComponent {
-
   // get from local storage
   cart_items_number: number = 3;
 }
