@@ -1,10 +1,6 @@
 <div class="home">
   <app-product-card
     *ngFor="let product of products"
-    [name]="product.name"
-    [price]="product.price"
-    [image_path]="product.image_path"
-    [short_description]="product.short_description"
-    [id]="product.id"
+    [product]="product"
   ></app-product-card>
 </div>

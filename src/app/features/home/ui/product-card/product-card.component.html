@@ -1,10 +1,16 @@
 <div class="product-card">
-  <img [src]="image_path" alt="{{ name }}" class="product-card__image" />
+  <img
+    [src]="product.image_path"
+    alt="{{ product.name }}"
+    class="product-card__image"
+  />
 
   <div class="product-card__details">
-    <h2 class="product-card__name">{{ name }}</h2>
-    <p class="product-card__price">{{ price.toFixed(2) | currency : "USD" }}</p>
-    <p class="product-card__description">{{ short_description }}</p>
+    <h2 class="product-card__name">{{ product.name }}</h2>
+    <p class="product-card__price">
+      {{ product.price.toFixed(2) | currency : "USD" }}
+    </p>
+    <p class="product-card__description">{{ product.short_description }}</p>
 
     <div class="product-card__actions">
       <button (click)="addToCart()" class="product-card__actions__button">

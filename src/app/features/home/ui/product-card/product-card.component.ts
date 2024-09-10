@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CurrencyPipe } from '@angular/common';
+import { IProduct } from '../../../../shared/interfaces/IProduct';
+import { CartService } from '../../../../shared/services/cart.service';
 
 @Component({
   selector: 'app-product-card',
@@ -10,18 +12,15 @@ import { CurrencyPipe } from '@angular/common';
   styleUrl: './product-card.component.scss',
 })
 export class ProductCardComponent {
-  @Input() name!: string;
-  @Input() price!: number;
-  @Input() image_path!: string;
-  @Input() short_description!: string;
-  @Input() id!: number;
+  @Input() product!: IProduct;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private cartService: CartService) {}
 
   addToCart() {
-    alert('not implemented!');
+    this.cartService.addToCart(this.product, 1);
   }
+
   viewDetails() {
-    this.router.navigate(['/product', this.id]);
+    this.router.navigate(['/product', this.product.id]);
   }
 }

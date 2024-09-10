@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { CurrencyPipe } from '@angular/common';
 import { NgIf } from '@angular/common';
+import { CartService } from '../../shared/services/cart.service';
 
 @Component({
   selector: 'app-product-details',
@@ -20,7 +21,8 @@ export class ProductDetailsComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private cartService: CartService
   ) {}
 
   ngOnInit() {
@@ -36,7 +38,7 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   addToCart() {
-    alert('not implemented');
+    this.cartService.addToCart(this.product, this.productsAmount);
   }
 
   increaseAmount() {
