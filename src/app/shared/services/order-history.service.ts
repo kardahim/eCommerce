@@ -20,4 +20,9 @@ export class OrderHistoryService {
       this.authService.updateUser(user);
     }
   }
+
+  loadOrder(): IOrderHistory[] {
+    const user: IUser | null = this.authService.getLoggedInUser();
+    return user?.history || [];
+  }
 }

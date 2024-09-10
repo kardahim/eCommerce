@@ -1,1 +1,27 @@
-<p>history works!</p>
+<div class="order-history" *ngIf="orderHistory.length > 0; else noOrders">
+  <h2 class="order-history__title">Your Order History</h2>
+  <ul class="order">
+    <li *ngFor="let order of orderHistory">
+      <div class="order-item">
+        <h3 class="order-date">
+          Order Date: {{ order.orderDate | date : "short" }}
+        </h3>
+        <ul>
+          <li *ngFor="let item of order.cart">
+            {{ item.product.name }} - {{ item.amount }} x
+            {{ item.product.price | currency : "USD" }}
+          </li>
+        </ul>
+        <div class="order-total">
+          <strong
+            >Total:
+            {{ calculateSingleOrder(order.cart) | currency : "USD" }}</strong
+          >
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+<ng-template #noOrders>
+  <p>You have no orders in your history.</p>
+</ng-template>
