@@ -1,9 +1,9 @@
 import { CurrencyPipe, NgFor, NgIf } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { CartService } from '../../../../shared/services/cart.service';
+import { CartService } from '../../shared/services/cart.service';
 import { Subscription } from 'rxjs';
-import { ICartItem } from '../../../../shared/interfaces/ICartItem';
-import { IProduct } from '../../../../shared/interfaces/IProduct';
+import { ICartItem } from '../../shared/interfaces/ICartItem';
+import { IProduct } from '../../shared/interfaces/IProduct';
 import { Router } from '@angular/router';
 
 @Component({

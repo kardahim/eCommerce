@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavigationComponent } from './features/navigation/navigation.component';
-import { CartComponent } from './features/home/ui/cart/cart.component';
+import { CartComponent } from './features/cart/cart.component';
 
 @Component({
   selector: 'app-root',
