@@ -5,6 +5,7 @@ import { RegisterComponent } from './features/register/register.component';
 import { ProductDetailsComponent } from './features/product-details/product-details.component';
 import { CheckoutComponent } from './features/checkout/checkout.component';
 import { HistoryComponent } from './features/history/history.component';
+import { authGuard } from './auth.guard';
 
 export const routes: Routes = [
   {
@@ -30,5 +31,6 @@ export const routes: Routes = [
   {
     path: 'history',
     component: HistoryComponent,
+    canActivate: [authGuard],
   },
 ];
