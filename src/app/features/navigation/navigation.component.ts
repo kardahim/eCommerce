@@ -4,6 +4,7 @@ import { NgIf } from '@angular/common';
 import { CartService } from '../../shared/services/cart.service';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../../shared/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navigation',
@@ -21,7 +22,8 @@ export class NavigationComponent implements OnInit, OnDestroy {
 
   constructor(
     private cartService: CartService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -57,5 +59,6 @@ export class NavigationComponent implements OnInit, OnDestroy {
 
   logout() {
     this.authService.logout();
+    this.router.navigate(['']);
   }
 }
