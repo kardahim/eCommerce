@@ -1,0 +1,24 @@
+<form for class="filters" [formGroup]="filterForm">
+  <div class="filters__searchbar">
+    <input
+      type="text"
+      class="filters__searchbar"
+      placeholder="Search for products..."
+      formControlName="search"
+      (change)="onSearchbarChange()"
+    />
+    <button type="submit" class="filters__button">
+      <img src="images/search.svg" alt="search button" title="Search" />
+    </button>
+  </div>
+  <select
+    formControlName="sortBy"
+    (change)="onSortChange()"
+    class="filters__sort"
+  >
+    <option value="nameAsc">Name (Asc)</option>
+    <option value="nameDesc">Name (Desc)</option>
+    <option value="priceAsc">Price (Asc)</option>
+    <option value="priceDesc">Price (Desc)</option>
+  </select>
+</form>

@@ -1,6 +1,12 @@
 <div class="home">
-  <app-product-card
-    *ngFor="let product of products"
-    [product]="product"
-  ></app-product-card>
+  <app-filters
+    (searchbarChanged)="filterBySeach($event)"
+    (sortChanged)="sortBy($event)"
+  />
+  <div class="home__products">
+    <app-product-card
+      *ngFor="let product of filteredProducts"
+      [product]="product"
+    />
+  </div>
 </div>
